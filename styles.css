@@ -1,11 +1,11 @@
 /* About Us Section Styles */
 .about-us {
-    background-image: url('side-view-people-garage-sale.jpg'); /* Use the correct image path */
+    background-image: url('side-view-people-garage-sale.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 50px 20px;
-    color: white;
+    color: #f5efef;
     text-align: center;
 }
 
@@ -43,7 +43,7 @@
 
 .about-us ul li {
     margin: 10px 0;
-    color: white;
+    color: rgb(26, 25, 25);
 }
 
 
@@ -61,6 +61,18 @@ footer {
     background: #333;
     color: white;
     text-align: center;
+}
+header {
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0; /* Aligns it at the top */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures it's above other content */
+}
+
+/* Add a margin to the body or main content to prevent overlap with the fixed header */
+body {
+    padding-top: 80px; /* Adjust based on the height of your header */
 }
 
 
@@ -115,7 +127,7 @@ nav ul li a {
     background-position: center;
     text-align: center;
     padding: 100px 20px;
-    color: white;
+    color: rgb(24, 23, 23);
 }
 
 .hero h1 {
