@@ -21,6 +21,7 @@ The primary objectives of Volunteer Connect include:
 - **Evans Cheruiyot** - [GitHub Profile](https://github.com/sudoevans)
 - **Kingsley Okoh** - [GitHub Profile](https://github.com/Mr-kings042)
 - **Fasola Sunkade** - [GitHub Profilfe ](https://github.com/Sunkade)
+-  **Name** - [GitHub Profilfe ])
 
 *(Replace placeholder names and links with your name and information)*
 
