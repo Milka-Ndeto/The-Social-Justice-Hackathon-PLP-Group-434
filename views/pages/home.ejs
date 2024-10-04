@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer Connect - Home</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Connect</title>
+  <link rel="stylesheet" href="../../public\css\styles.css">
 </head>
-<body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="logo">Volunteer Connect</div>
-        <nav>
-            
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="opportunities.html">Opportunities</a></li>
-                <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="blog.html">Blog/Resources</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    
-        <a href="signup.html" class="cta-button">Join as a Volunteer</a>
-    </header>
-
-    <!-- Hero Section -->
+<%- include('../partials/header.js') %>
+<!-- Hero Section -->
     <section class="hero">
+        <% if (user) { %>
+            <p>Hello, user!</p>
+            <a href="/dashboard">Go to Dashboard</a>
+            <div id="user-button"></div>
+          <% } else { %>
+            <div id="sign-in"></div>
+          <% } %>
+          
         <h1>Connect with Meaningful Volunteer Opportunities in Your Community</h1>
         <p>Empowering individuals to make a difference through accessible volunteering.</p>
         <a href="signup.html" class="cta-button">Get Started</a>
@@ -117,20 +106,19 @@
     </section>
 
     <!-- Footer Section -->
-    <footer>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-        </div>
-        <div class="social-media">
-            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-        </div>
-        <div class="contact-info">
-            <p>Email: info@volunteerconnect.com</p>
-            <p>Phone: +123 456 7890</p>
-        </div>
-    </footer>
 
-</body>
+    <div id="app"></div>
+    <script>
+        const clerkPubKey = '<%= clerkPubKey %>';
+        const clerk = new Clerk(clerkPubKey);
+        clerk.load().then(() => {
+          if (clerk.user) {
+            const userButtonDiv = document.getElementById('user-button');
+            clerk.mountUserButton(userButtonDiv);
+          } else {
+            const signInDiv = document.getElementById('sign-in');
+            clerk.mountSignIn(signInDiv);
+          }
+        });
+      </script>
 </html>
