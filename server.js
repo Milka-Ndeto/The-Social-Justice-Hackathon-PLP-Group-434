@@ -1,10 +1,25 @@
 const express = require('express');
 const path = require('path');
+const mysql = require('mysql2');
 const { ClerkExpressRequireAuth } = require('@clerk/clerk-sdk-node');
 require('dotenv').config();
 
 const app = express();
+// database connection
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+  });
+  db.connect((err) =>{
+    if (err) {
+      console.error('error connecting:', err);
+      return;
+      }
+      console.log('connected to database as id ' + db.threadId);
 
+  })
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
