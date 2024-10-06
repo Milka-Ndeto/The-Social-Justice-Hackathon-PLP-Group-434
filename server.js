@@ -1,10 +1,16 @@
 const express = require('express');
 const path = require('path');
+<<<<<<< HEAD
+=======
 const mysql = require('mysql2');
+>>>>>>> 175b4b9177e37629d0233d824fa33d6106934471
 const { ClerkExpressRequireAuth } = require('@clerk/clerk-sdk-node');
 require('dotenv').config();
 
 const app = express();
+<<<<<<< HEAD
+
+=======
 // database connection
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -20,6 +26,7 @@ const db = mysql.createConnection({
       console.log('connected to database as id ' + db.threadId);
 
   })
+>>>>>>> 175b4b9177e37629d0233d824fa33d6106934471
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -35,6 +42,11 @@ const clerkMiddleware = ClerkExpressRequireAuth({
   publishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
 });
 
+<<<<<<< HEAD
+// Use protected routes directly without the '/protected' prefix
+app.use(require('./routes/protected'));
+app.use('/', require('./routes/public'));
+=======
 // Routes
 app.get('/', (req, res) => {
   res.render('pages/home', { 
@@ -48,6 +60,7 @@ app.get('/dashboard', clerkMiddleware, (req, res) => {
 });
 
 // Add other routes as needed
+>>>>>>> 175b4b9177e37629d0233d824fa33d6106934471
 
 // 404 handler
 app.use((req, res) => {
@@ -55,4 +68,8 @@ app.use((req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+=======
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+>>>>>>> 175b4b9177e37629d0233d824fa33d6106934471
