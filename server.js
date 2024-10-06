@@ -20,19 +20,9 @@ const clerkMiddleware = ClerkExpressRequireAuth({
   publishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
 });
 
-// Routes
-app.get('/', (req, res) => {
-  res.render('pages/home', { 
-    user: req.auth ? req.auth.userId : null,
-    clerkPubKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
-  });
-});
-
-app.get('/dashboard', clerkMiddleware, (req, res) => {
-  res.render('protected/dashboard', { user: req.auth.userId });
-});
-
-// Add other routes as needed
+// Use protected routes directly without the '/protected' prefix
+app.use(require('./routes/protected'));
+app.use('/', require('./routes/public'));
 
 // 404 handler
 app.use((req, res) => {

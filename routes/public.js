@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('pages/home', { user: req.user });
+  res.render('pages/home', {
+    user: req.user,
+    clerkPubKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
+  });
 });
 
 router.get('/blog', (req, res) => {

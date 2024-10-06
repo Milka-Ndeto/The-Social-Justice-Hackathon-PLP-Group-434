@@ -3,24 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Blogs & Resources</title>
 </head>
 <body>
-    <header>
-        <div class="logo">Volunteer Connect</div>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="opportunities.html">Opportunities</a></li>
-                <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="blogs.html" class="active">Blogs/Resources</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="signup.html" class="cta">Join as a Volunteer</a>
-    </header>
+    <%- include('../partials/header.ejs') %>
 
     <main>
         <h1>Latest Blogs & Resources</h1>
@@ -62,7 +49,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Volunteer Connect | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        <p>&copy; 2024 Volunteer Connect | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
         <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Instagram</a></p>
     </footer>
 </body>
