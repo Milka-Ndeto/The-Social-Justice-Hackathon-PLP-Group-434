@@ -17,8 +17,12 @@
     "@clerk/clerk-sdk-node": "^5.0.48",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.21.0",
+    "express": "^4.21.1",
     "mysql2": "^3.11.3"
-  }
+  },
+  "description": "**Volunteer Connect** is a collaborative project developed during the Social Justice Hackathon by Group 434. Our goal is to create a platform that connects volunteers with meaningful opportunities, promoting community development and social justice by making volunteering more accessible.",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
-
